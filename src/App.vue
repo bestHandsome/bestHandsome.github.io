@@ -2,40 +2,33 @@
  * @Author: xingjin
  * @Date: 2023-07-21 16:15:26
  * @LastEditors: xingjinjin
- * @LastEditTime: 2023-07-24 11:49:48
+ * @LastEditTime: 2023-07-24 17:57:46
  * @Description: 请填写简介
 -->
 
 <template>
-	<n-config-provider
-		:locale="zhCN"
-		name="sssds"
-		:theme-overrides="{ common: { fontWeightStrong: '600' } }"
-	>
-		<routerView />
-	</n-config-provider>
+  <n-config-provider
+    :locale="zhCN"
+    :theme="theme"
+    name="sssds"
+    :theme-overrides="{ common: { fontWeightStrong: '600' } }"
+  >
+    <n-card>
+      <n-space>
+        <n-button @click="changeTheme">深色</n-button>
+        <n-button @click="theme = null">浅色</n-button>
+      </n-space>
+    </n-card>
+    <routerView />
+  </n-config-provider>
 </template>
 
 <script setup lang="ts">
-import { zhCN } from 'naive-ui';
-
-let a = 1;
-const change = name => {
-	return 1;
+import { zhCN, darkTheme } from 'naive-ui';
+const theme = ref<any>(null);
+const changeTheme = () => {
+  theme.value = darkTheme;
 };
 </script>
 
-<style scoped>
-.logo {
-	height: 6em;
-	padding: 1.5em;
-	will-change: filter;
-	transition: filter 300ms;
-}
-.logo:hover {
-	filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-	filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+<style scoped></style>
