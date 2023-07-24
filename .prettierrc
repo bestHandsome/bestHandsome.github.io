@@ -1,9 +1,9 @@
 {
   "singleQuote": true,
   "autoFix": false,
-  "printWidth": 140,
+  "printWidth": 80,
   "semi": true,
-  "trailingComma": "none",
+  "trailingComma": "all",
   "arrowParens": "avoid",
   "endOfLine": "lf"
 }
