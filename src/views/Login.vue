@@ -7,12 +7,7 @@
 -->
 <template>
 	<n-button>naive-ui</n-button>
-	<HelloWorld
-		msg="sss"
-		class="ss aa flex align-middle h-1 w-0 flex-1"
-		id="ssdsss"
-		name="sdssdsdds"
-	/>
+	<HelloWorld msg="sss" class="ss aa flex align-middle h-1 w-0 flex-1" id="ssdsss" name="sdssdsdds" />
 </template>
 <script setup lang="ts">
 import HelloWorld from '@/components/HelloWorld.vue';

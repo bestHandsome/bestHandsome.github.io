@@ -2,7 +2,7 @@
  * @Author: xingjin
  * @Date: 2023-07-24 17:34:02
  * @LastEditors: xingjinjin
- * @LastEditTime: 2023-07-24 17:37:44
+ * @LastEditTime: 2023-07-31 16:30:28
  * @Description: 工具 - 帮助函数
  */
 import { upperFirst, camelCase, chain } from 'lodash';
@@ -18,7 +18,9 @@ export function isUnLogin() {
   const token = sessionStorage.getItem('x_id_token');
   if (token) {
     const decoded = jwt_decode(token);
-    const { exp } = decoded as { exp: number | null };
+    const { exp } = decoded as {
+      exp: number | null;
+    };
     if (exp) {
       if (exp * 1000 < Date.now()) {
         sessionStorage.clear();
@@ -84,7 +86,6 @@ const transformRoute = (
     directory = componentName;
   }
   const pageKey = `${PAGE_NAME_SPACE + directory}/${componentName}.vue`;
-  // console.log(pageKey, "pageky", directory);
   const res: IOptions = {
     path: newPath,
     name,
@@ -170,7 +171,10 @@ export const validatePassword = (
 
 export const validateAttach = (
   rule: any,
-  value: { attribute: string; url: string }[],
+  value: {
+    attribute: string;
+    url: string;
+  }[],
   callback: Function,
 ) => {
   const flag = value.some(item => item.url.includes('blob:'));
@@ -182,8 +186,11 @@ export const validateAttach = (
 
 export const validateUpload = (
   rule: any,
-  value: { attribute: string; url: string }[],
-  callback: Function,
+  value: {
+    attribute: string;
+    url: string;
+  }[],
+  callback: () => void,
 ) => {
   const flag =
     Array.isArray(value) &&
@@ -195,4 +202,89 @@ export const validateUpload = (
     return callback(new Error('😲Ops,请耐心等待图片上传完成再提交！'));
   }
   callback();
+};
+
+// 转换带有媒体资源的数据
+export const transformMediaData = (
+  data: Array<any>,
+  resourceBase: string = 'http://172.16.88.41:1337',
+) => {
+  return data.reduce((pre, cur) => {
+    const { id, cover } = cur;
+    let coverUrl = '';
+    if (cover) {
+      coverUrl = resourceBase + cover?.url;
+      delete cur.cover;
+    }
+
+    pre.push({
+      id,
+      ...cur,
+      coverUrl,
+    });
+
+    return pre;
+  }, []);
+};
+
+export const transformAxiosDta = (res: any) => {
+  const { data, meta } = res;
+  const targetData = Array.isArray(data)
+    ? data.map(item => ({
+        id: item.id,
+        ...item.attributes,
+      }))
+    : {
+        id: data.id,
+        ...data.attributes,
+      };
+  return {
+    data: targetData,
+    meta,
+  };
+};
+
+export const transformDateToCustom = (date: string) => {
+  if (!date) return '-';
+  const startDate = Date.now();
+  const endDate = new Date(date).getTime();
+  const diff = startDate - endDate;
+  const minute = 60 * 60;
+  const hours = 60 * minute;
+  const days = 24 * hours;
+  const month = 30 * days;
+  const year = 12 * month;
+  let showStr = '';
+  if (diff < minute) {
+    showStr = '刚刚';
+  } else if (diff >= minute && diff < hours) {
+    // 大于1分钟小于1小时
+    const minuteCount = Math.floor(diff / minute);
+    showStr = `${minuteCount}分钟前`;
+  } else if (diff >= hours && diff < days) {
+    // 大于1小时小于一天
+    const hoursCount = Math.floor(diff / hours); // 几小时
+    return `${hoursCount}小时前`;
+  } else if (diff >= days && diff < month) {
+    // 小于一个月
+    const dayCount = Math.floor(diff / days);
+    const weeks = Math.floor(dayCount / 7);
+    if (weeks < 1) {
+      showStr = `${dayCount}天前`;
+    } else {
+      showStr = `${weeks}周前`;
+    }
+  } else if (diff >= month && diff < year) {
+    // 一个月以后
+    const monthCount = Math.floor(diff / month);
+    if (monthCount >= 6) {
+      showStr = `半年前`;
+    } else {
+      showStr = `${monthCount}个月前`;
+    }
+  } else {
+    const yearCount = Math.floor(diff / year);
+    showStr = `${yearCount}年前`;
+  }
+  return showStr;
 };

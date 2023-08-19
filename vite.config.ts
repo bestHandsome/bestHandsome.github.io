@@ -2,7 +2,7 @@
  * @Author: xingjin
  * @Date: 2023-07-21 14:33:55
  * @LastEditors: xingjinjin
- * @LastEditTime: 2023-07-24 15:46:01
+ * @LastEditTime: 2023-07-27 15:55:59
  * @Description: 请填写简介
  */
 /// <reference types="vitest"/>
@@ -11,17 +11,15 @@ import vue from '@vitejs/plugin-vue';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
+import VueDevTools from 'vite-plugin-vue-devtools';
 // import eslint from 'vite-plugin-eslint';
-import path from 'path';
-
-function _resolve(dir) {
-  return path.resolve(__dirname, dir);
-}
+import { fileURLToPath, URL } from 'node:url';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(), // 自动导入API方法
+    VueDevTools(),
     // eslint(),
     AutoImport({
       imports: [
@@ -30,12 +28,7 @@ export default defineConfig({
         'vitest',
         'pinia',
         {
-          'naive-ui': [
-            'useDialog',
-            'useMessage',
-            'useNotification',
-            'useLoadingBar',
-          ],
+          'naive-ui': ['useDialog', 'useMessage', 'useNotification', 'useLoadingBar'],
         },
       ],
       eslintrc: {
@@ -44,17 +37,17 @@ export default defineConfig({
         globalsPropValue: true, // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
       },
       resolvers: [], // custom resolvers
-      dts: 'src/typings/auto-imports.d.ts', // 导入存放地址
+      dts: 'typings/auto-imports.d.ts', // 导入存放地址
     }),
     // 自动导入组件
     Components({
       resolvers: [NaiveUiResolver()], // custom resolvers
-      dts: 'src/typings/components.d.ts',
+      dts: 'typings/components.d.ts',
     }),
   ],
   resolve: {
     alias: {
-      '@': _resolve('src'),
+      '@/': fileURLToPath(new URL('./src/', import.meta.url)),
     },
   },
   test: {
@@ -62,6 +55,24 @@ export default defineConfig({
     environment: 'jsdom',
     coverage: {
       provider: 'v8',
+    },
+  },
+  server: {
+    host: '0.0.0.0',
+    hmr: true,
+    open: true,
+    proxy: {
+      '/api': {
+        target: 'http://172.16.88.41:1337',
+        changeOrigin: true,
+        secure: false,
+        // rewrite: path => path.replace(/^\/api/, ''),
+      },
+      '/uploads': {
+        target: 'http://172.16.88.41:1337',
+        changeOrigin: true,
+        secure: false,
+      },
     },
   },
 });

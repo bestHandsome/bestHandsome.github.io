@@ -6,11 +6,9 @@
  * @Description: 请填写简介
 -->
 <template>
-  <div
-    :class="['msg-wrap', msg && msg.length > 0 ? 'notification--slide' : null]"
-  >
-    <p>{{ msg }}</p>
-  </div>
+	<div :class="['msg-wrap', msg && msg.length > 0 ? 'notification--slide' : null]">
+		<p>{{ msg }}</p>
+	</div>
 </template>
 
 <script setup lang="ts">
@@ -19,6 +17,6 @@ defineProps<{ msg: string }>();
 
 <style scoped>
 .read-the-docs {
-  color: #888;
+	color: #888;
 }
 </style>

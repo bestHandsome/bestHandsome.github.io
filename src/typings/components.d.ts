@@ -6,13 +6,19 @@
 export {}
 
 declare module 'vue' {
-  export interface GlobalComponents {
-    HelloWorld: typeof import('./../components/HelloWorld.vue')['default']
-    NButton: typeof import('naive-ui')['NButton']
-    NCard: typeof import('naive-ui')['NCard']
-    NConfigProvider: typeof import('naive-ui')['NConfigProvider']
-    NSpace: typeof import('naive-ui')['NSpace']
-    RouterLink: typeof import('vue-router')['RouterLink']
-    RouterView: typeof import('vue-router')['RouterView']
-  }
+	export interface GlobalComponents {
+		HelloWorld: typeof import('./../components/HelloWorld.vue')['default'];
+		NAvatar: typeof import('naive-ui')['NAvatar'];
+		NButton: typeof import('naive-ui')['NButton'];
+		NCard: typeof import('naive-ui')['NCard'];
+		NConfigProvider: typeof import('naive-ui')['NConfigProvider'];
+		NDropdown: typeof import('naive-ui')['NDropdown'];
+		NGlobalStyle: typeof import('naive-ui')['NGlobalStyle'];
+		NIcon: typeof import('naive-ui')['NIcon'];
+		NMenu: typeof import('naive-ui')['NMenu'];
+		NSpace: typeof import('naive-ui')['NSpace'];
+		NSwitch: typeof import('naive-ui')['NSwitch'];
+		RouterLink: typeof import('vue-router')['RouterLink'];
+		RouterView: typeof import('vue-router')['RouterView'];
+	}
 }

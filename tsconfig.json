@@ -28,12 +28,6 @@
       "@/*": ["src/*"]
     }
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "env.d.ts"
-  ],
+  "include": ["src/**/*", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "env.d.ts", "typings/*.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
