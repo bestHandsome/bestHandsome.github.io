@@ -2,7 +2,7 @@
  * @Author: xingjin
  * @Date: 2023-07-24 17:45:59
  * @LastEditors: xingjinjin
- * @LastEditTime: 2023-08-30 17:18:41
+ * @LastEditTime: 2023-09-01 10:59:14
  * @Description: 项目首页
 -->
 <template>
@@ -47,6 +47,7 @@ import { transformMediaData } from '@/utils/helper';
 const router = useRouter();
 const goCenter = () => router.push('/article');
 let banners = ref<Array<any>>([]);
+console.log('111');
 
 const getData = async () => {
   let res = await getBanners();
