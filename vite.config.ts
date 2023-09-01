@@ -2,7 +2,7 @@
  * @Author: xingjin
  * @Date: 2023-07-21 14:33:55
  * @LastEditors: xingjinjin
- * @LastEditTime: 2023-07-27 15:55:59
+ * @LastEditTime: 2023-09-01 09:17:41
  * @Description: 请填写简介
  */
 /// <reference types="vitest"/>
@@ -14,9 +14,14 @@ import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
 import VueDevTools from 'vite-plugin-vue-devtools';
 // import eslint from 'vite-plugin-eslint';
 import { fileURLToPath, URL } from 'node:url';
+import { visualizer } from 'rollup-plugin-visualizer';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/vue3-blog/',
+  build: {
+    outDir: 'docs',
+  },
   plugins: [
     vue(), // 自动导入API方法
     VueDevTools(),
@@ -28,7 +33,12 @@ export default defineConfig({
         'vitest',
         'pinia',
         {
-          'naive-ui': ['useDialog', 'useMessage', 'useNotification', 'useLoadingBar'],
+          'naive-ui': [
+            'useDialog',
+            'useMessage',
+            'useNotification',
+            'useLoadingBar',
+          ],
         },
       ],
       eslintrc: {

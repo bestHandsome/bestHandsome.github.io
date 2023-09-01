@@ -2,12 +2,16 @@
  * @Author: xingjin
  * @Date: 2023-07-25 10:06:33
  * @LastEditors: xingjinjin
- * @LastEditTime: 2023-07-31 16:06:02
+ * @LastEditTime: 2023-08-31 22:08:53
  * @Description: 请填写简介
 -->
 <template>
   <div class="flex p-5 bg-slate-50">
-    <div class="mr-20">left</div>
+    <div class="mr-20">
+      <ul v-for="tag in tagList" :key="tag.key">
+        <li>{{ tag.label }}</li>
+      </ul>
+    </div>
     <div class="flex-1 bg-white">
       <n-tabs class="pl-5" type="line" animated @update:value="tabChange">
         <n-tab name="createdAt" tab="最新"> </n-tab>
@@ -41,11 +45,13 @@ import InfiniteLoding from '@/components/InfiniteLoding.vue';
 import { getArticles } from '@/apis/article';
 import { IArticle } from '@/components/types/article';
 import { transformDateToCustom } from '@/utils/helper';
+import type { ITag } from './types/interface';
 
 const router = useRouter();
 const articles = ref<IArticle[]>([]);
 const loading = ref(false);
 const finished = ref(false);
+const tagList = ref<ITag[]>([{ label: '前端', key: 1 }]);
 
 const initState = reactive({
   articleParams: {
@@ -62,7 +68,7 @@ const getData = async () => {
   let {
     data,
     meta: { pagination },
-  } = await getArticles(initState.articleParams);
+  } = (await getArticles(initState.articleParams)) as any;
   const target = data.map((item: IArticle) => {
     const tags = item?.category?.split(',');
     item.createdAt = transformDateToCustom(item.createdAt);

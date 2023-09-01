@@ -2,7 +2,7 @@
  * @Author: xingjin
  * @Date: 2023-07-24 17:34:02
  * @LastEditors: xingjinjin
- * @LastEditTime: 2023-07-31 16:30:28
+ * @LastEditTime: 2023-08-19 23:46:49
  * @Description: 工具 - 帮助函数
  */
 import { upperFirst, camelCase, chain } from 'lodash';
@@ -190,7 +190,7 @@ export const validateUpload = (
     attribute: string;
     url: string;
   }[],
-  callback: () => void,
+  callback: (err?: any) => void,
 ) => {
   const flag =
     Array.isArray(value) &&

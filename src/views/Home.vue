@@ -2,15 +2,15 @@
  * @Author: xingjin
  * @Date: 2023-07-24 17:45:59
  * @LastEditors: xingjinjin
- * @LastEditTime: 2023-07-27 11:48:33
+ * @LastEditTime: 2023-08-30 17:18:41
  * @Description: 项目首页
 -->
 <template>
   <div
-    class="flex justify-center items-center w-screen h-screen p-40 bg-color text-rose-500"
+    class="flex justify-center items-center text-center w-screen h-screen p-40 bg-color text-cyan-400"
   >
     <div>
-      <n-grid x-gap="24" :cols="2" class="flex w-full">
+      <n-grid x-gap="24" :cols="3" class="flex w-full">
         <n-gi
           v-for="banner in banners"
           :key="banner.id"
@@ -25,7 +25,7 @@
               <template #cover>
                 <div class="img-wrap relative h-0">
                   <img
-                    class="absolute top-0 left-0 rounded-xl h-full"
+                    class="absolute top-0 left-0 rounded-xl cover"
                     :src="banner.coverUrl"
                     alt=""
                   />

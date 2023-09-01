@@ -2,15 +2,14 @@
  * @Author: xingjin
  * @Date: 2023-07-21 16:47:26
  * @LastEditors: xingjinjin
- * @LastEditTime: 2023-07-31 14:27:07
+ * @LastEditTime: 2023-08-19 23:47:58
  * @Description: 请求封装
  */
-import axios from 'axios';
-import type {
-  AxiosResponse,
-  AxiosRequestConfig,
+import axios, {
   AxiosInstance,
   AxiosError,
+  AxiosRequestConfig,
+  AxiosResponse,
 } from 'axios';
 import { errorCodeType } from './error-code-type';
 import { transformAxiosDta } from './helper';
@@ -39,7 +38,7 @@ interface ResultData<T = any> extends Result {
 const { VITE_APP_BASEURL = '/api' } = import.meta.env;
 // 创建实例
 const service: AxiosInstance = axios.create({
-  baseURL: VITE_APP_BASEURL,
+  baseURL: 'http://172.16.88.41:1337/api',
   headers: {
     'Content-Type': 'application/json;charset=utf-8',
   },
@@ -52,9 +51,6 @@ service.interceptors.request.use(
     const token = localStorage.getItem('token') || '';
     return {
       ...config,
-      headers: {
-        'x-access-token': token, // 请求头中携带token信息
-      },
     };
   },
   (error: AxiosError) => {
@@ -64,8 +60,8 @@ service.interceptors.request.use(
 
 // 响应拦截
 service.interceptors.response.use(
-  (res: AxiosResponse) => {
-    const { data, config } = res; // 解构
+  (res: any) => {
+    const { data, config } = res as any; // 解构
     const code = data['code'] || 200;
     const msg =
       errorCodeType(code) || res.data['msg'] || errorCodeType('default');
