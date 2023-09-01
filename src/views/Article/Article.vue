@@ -2,7 +2,7 @@
  * @Author: xingjin
  * @Date: 2023-07-25 10:06:33
  * @LastEditors: xingjinjin
- * @LastEditTime: 2023-08-31 22:08:53
+ * @LastEditTime: 2023-09-01 10:13:29
  * @Description: 请填写简介
 -->
 <template>
@@ -51,7 +51,7 @@ const router = useRouter();
 const articles = ref<IArticle[]>([]);
 const loading = ref(false);
 const finished = ref(false);
-const tagList = ref<ITag[]>([{ label: '前端', key: 1 }]);
+const tagList = ref<ITag[]>([{ label: '前端', key: 1 }]) as any;
 
 const initState = reactive({
   articleParams: {
