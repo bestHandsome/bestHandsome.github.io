@@ -2,7 +2,7 @@
  * @Author: xingjin
  * @Date: 2023-07-21 14:33:55
  * @LastEditors: xingjinjin
- * @LastEditTime: 2023-09-01 10:37:36
+ * @LastEditTime: 2023-09-01 10:53:33
  * @Description: 请填写简介
  */
 /// <reference types="vitest"/>
@@ -18,9 +18,7 @@ import { visualizer } from 'rollup-plugin-visualizer';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  build: {
-    outDir: 'docs',
-  },
+  base: '/vue3-blog',
   plugins: [
     vue(), // 自动导入API方法
     VueDevTools(),
