@@ -6,30 +6,30 @@
 export {}
 
 declare module 'vue' {
-	export interface GlobalComponents {
-		ArticleCard: typeof import('./../src/components/ArticleCard.vue')['default'];
-		ExInfo: typeof import('./../src/components/ExInfo.vue')['default'];
-		HelloWorld: typeof import('./../src/components/HelloWorld.vue')['default'];
-		InfiniteLoding: typeof import('./../src/components/InfiniteLoding.vue')['default'];
-		NAvatar: typeof import('naive-ui')['NAvatar'];
-		NButton: typeof import('naive-ui')['NButton'];
-		NCard: typeof import('naive-ui')['NCard'];
-		NConfigProvider: typeof import('naive-ui')['NConfigProvider'];
-		NDropdown: typeof import('naive-ui')['NDropdown'];
-		NGi: typeof import('naive-ui')['NGi'];
-		NGlobalStyle: typeof import('naive-ui')['NGlobalStyle'];
-		NGrid: typeof import('naive-ui')['NGrid'];
-		NIcon: typeof import('naive-ui')['NIcon'];
-		NList: typeof import('naive-ui')['NList'];
-		NListItem: typeof import('naive-ui')['NListItem'];
-		NMenu: typeof import('naive-ui')['NMenu'];
-		NSpace: typeof import('naive-ui')['NSpace'];
-		NSpin: typeof import('naive-ui')['NSpin'];
-		NSwitch: typeof import('naive-ui')['NSwitch'];
-		NTab: typeof import('naive-ui')['NTab'];
-		NTabs: typeof import('naive-ui')['NTabs'];
-		NTag: typeof import('naive-ui')['NTag'];
-		RouterLink: typeof import('vue-router')['RouterLink'];
-		RouterView: typeof import('vue-router')['RouterView'];
-	}
+  export interface GlobalComponents {
+    ArticleCard: typeof import('./../src/components/ArticleCard.vue')['default']
+    ExInfo: typeof import('./../src/components/ExInfo.vue')['default']
+    HelloWorld: typeof import('./../src/components/HelloWorld.vue')['default']
+    InfiniteLoding: typeof import('./../src/components/InfiniteLoding.vue')['default']
+    NAvatar: typeof import('naive-ui')['NAvatar']
+    NButton: typeof import('naive-ui')['NButton']
+    NCard: typeof import('naive-ui')['NCard']
+    NConfigProvider: typeof import('naive-ui')['NConfigProvider']
+    NDropdown: typeof import('naive-ui')['NDropdown']
+    NGi: typeof import('naive-ui')['NGi']
+    NGlobalStyle: typeof import('naive-ui')['NGlobalStyle']
+    NGrid: typeof import('naive-ui')['NGrid']
+    NIcon: typeof import('naive-ui')['NIcon']
+    NList: typeof import('naive-ui')['NList']
+    NListItem: typeof import('naive-ui')['NListItem']
+    NMenu: typeof import('naive-ui')['NMenu']
+    NSpace: typeof import('naive-ui')['NSpace']
+    NSpin: typeof import('naive-ui')['NSpin']
+    NSwitch: typeof import('naive-ui')['NSwitch']
+    NTab: typeof import('naive-ui')['NTab']
+    NTabs: typeof import('naive-ui')['NTabs']
+    NTag: typeof import('naive-ui')['NTag']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
+  }
 }
