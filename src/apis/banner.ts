@@ -8,7 +8,7 @@
 import service from '@/utils/request';
 // 展会查询
 export function getBanners() {
-  return service({
-    url: '/banners?populate=*',
-  });
+	return service({
+		url: '/banners?populate=*',
+	});
 }

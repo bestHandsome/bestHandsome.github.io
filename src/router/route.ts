@@ -11,31 +11,31 @@ const pages = import.meta.glob('@/views/**/*.vue');
 const PAGE_NAME_SPACE = '/src/views/';
 
 const routes = [
-  {
-    path: 'article',
-    title: '文章',
-    children: [
-      {
-        path: ':id',
-        title: '详情',
-      },
-    ],
-  },
-  {
-    path: 'speaking',
-    title: '微语',
-  },
-  {
-    path: 'board',
-    title: '留言板',
-  },
-  {
-    path: 'travel',
-    title: '旅行',
-  },
-  {
-    path: 'about',
-    title: '关于我',
-  },
+	{
+		path: 'article',
+		title: '文章',
+		children: [
+			{
+				path: ':id',
+				title: '详情',
+			},
+		],
+	},
+	{
+		path: 'speaking',
+		title: '微语',
+	},
+	{
+		path: 'board',
+		title: '留言板',
+	},
+	{
+		path: 'travel',
+		title: '旅行',
+	},
+	{
+		path: 'about',
+		title: '关于我',
+	},
 ];
 export default inferNameAndComponent(routes, pages, PAGE_NAME_SPACE);

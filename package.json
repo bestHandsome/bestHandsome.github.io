@@ -4,13 +4,18 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "prepare": "husky install",
     "dev": "vite",
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
-    "lint": "eslint src --fix --ext .ts,.tsx,.vue,.js,.jsx",
+    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
     "prettier": "prettier --write .",
+    "log": "conventional-changelog --config ./node_modules/commitlint-cli/lib/log -i CHANGELOG.md -s -r 0",
+    "commit": "pnpm log && git add . && git-cz",
+    "coverage": "vitest run --coverage",
     "test": "vitest --watch=false",
-    "coverage": "vitest run --coverage"
+    "format": "prettier --write \"./**/*.{html,vue,ts,js,json,md}\"",
+    "lint:style": "stylelint \"./**/*.{css,less,vue,html}\" --fix"
   },
   "dependencies": {
     "@kangc/v-md-editor": "^2.3.16",
@@ -28,10 +33,12 @@
     "@babel/core": "^7.22.9",
     "@babel/preset-env": "^7.22.9",
     "@babel/preset-typescript": "^7.22.5",
+    "@commitlint/cli": "^17.7.1",
+    "@commitlint/config-conventional": "^17.7.0",
     "@types/lodash": "^4.14.194",
     "@types/node": "^18.6.3",
-    "@typescript-eslint/eslint-plugin": "^6.1.0",
-    "@typescript-eslint/parser": "^6.1.0",
+    "@typescript-eslint/eslint-plugin": "^6.5.0",
+    "@typescript-eslint/parser": "^6.5.0",
     "@vicons/ionicons5": "^0.12.0",
     "@vitejs/plugin-vue": "^4.2.3",
     "@vitest/coverage-v8": "^0.33.0",
@@ -40,14 +47,25 @@
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^5.0.0",
-    "eslint-plugin-vue": "^9.15.1",
+    "eslint-plugin-vue": "^9.17.0",
+    "git-cz": "^4.9.0",
+    "husky": "^8.0.3",
     "jsdom": "^22.1.0",
     "naive-ui": "^2.34.4",
     "postcss": "^8.4.26",
+    "postcss-html": "^1.5.0",
+    "postcss-less": "^6.0.0",
     "prettier": "^3.0.0",
     "rollup-plugin-visualizer": "^5.9.2",
     "sass": "^1.64.0",
     "sass-loader": "^13.3.2",
+    "stylelint": "^15.10.3",
+    "stylelint-config-prettier": "^9.0.5",
+    "stylelint-config-recommended-less": "^1.0.4",
+    "stylelint-config-standard": "^34.0.0",
+    "stylelint-config-standard-vue": "^1.0.0",
+    "stylelint-less": "^1.0.8",
+    "stylelint-order": "^6.0.3",
     "tailwindcss": "^3.3.3",
     "typescript": "^5.0.2",
     "unplugin-auto-import": "^0.16.6",
@@ -59,5 +77,15 @@
     "vitest": "^0.33.0",
     "vue-eslint-parser": "^9.3.1",
     "vue-tsc": "^1.8.5"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/commitlint-cli/lib/cz"
+    }
   }
 }

@@ -6,13 +6,5 @@
  * @Description: 工具函数
  */
 export const randomColor = () => {
-  return (
-    'hsl(' +
-    Math.round(Math.random() * 360) +
-    ',' +
-    Math.round(Math.random() * 100) +
-    '%,' +
-    Math.round(Math.random() * 80) +
-    '%)'
-  );
+	return 'hsl(' + Math.round(Math.random() * 360) + ',' + Math.round(Math.random() * 100) + '%,' + Math.round(Math.random() * 80) + '%)';
 };

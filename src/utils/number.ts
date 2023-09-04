@@ -7,8 +7,8 @@
  */
 //数字改变（加千位）
 export const transformToThousand = (number: number) => {
-  if (number >= 1000) {
-    return (number / 1000).toFixed(1) + 'k';
-  }
-  return number;
+	if (number >= 1000) {
+		return (number / 1000).toFixed(1) + 'k';
+	}
+	return number;
 };

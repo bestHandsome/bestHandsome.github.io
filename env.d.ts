@@ -6,9 +6,9 @@
  * @Description: 请填写简介
  */
 declare module '*.vue' {
-  import { defineComponent } from 'vue';
-  const Component: ReturnType<typeof defineComponent>;
-  export default Component;
+	import { defineComponent } from 'vue';
+	const Component: ReturnType<typeof defineComponent>;
+	export default Component;
 }
 
 declare module 'vue3-markdown-it';

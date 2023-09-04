@@ -2,7 +2,7 @@
  * @Author: xingjin
  * @Date: 2023-07-21 16:15:26
  * @LastEditors: xingjinjin
- * @LastEditTime: 2023-07-25 15:56:27
+ * @LastEditTime: 2023-09-04 11:08:17
  * @Description: 请填写简介
 -->
 
@@ -20,4 +20,9 @@ const globalStore = useGlobalStore();
 const { theme, locale, dateLocale, themeOverrides } = storeToRefs(globalStore);
 </script>
 
-<style scoped></style>
+<style scoped lang="less">
+.name {
+	width: 100px;
+	color: red;
+}
+</style>

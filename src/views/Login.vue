@@ -2,7 +2,7 @@
  * @Author: xingjin
  * @Date: 2023-07-21 16:30:34
  * @LastEditors: xingjinjin
- * @LastEditTime: 2023-07-24 14:03:32
+ * @LastEditTime: 2023-09-04 10:30:08
  * @Description: 请填写简介
 -->
 <template>
@@ -12,7 +12,8 @@
 <script setup lang="ts">
 import HelloWorld from '@/components/HelloWorld.vue';
 const name = ref<string>('title');
-const formData = reactive<any>({
+const formData = reactive<{ name: string }>({
 	name: 'ss',
 });
+console.log(name, '--', formData);
 </script>

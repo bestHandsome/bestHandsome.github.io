@@ -1,25 +1,16 @@
 /*
  * @Author: xingjin
- * @Date: 2023-07-24 11:27:57
+ * @Date: 2023-09-01 10:09:50
  * @LastEditors: xingjinjin
- * @LastEditTime: 2023-07-25 16:17:42
+ * @LastEditTime: 2023-09-04 11:20:12
  * @Description: 请填写简介
  */
 module.exports = {
-  parser: '@typescript-eslint/parser', // 新增 parser 键值。
-  plugins: ['vue', 'prettier'],
   env: {
     browser: true,
     es2021: true,
-    node: true,
   },
-  extends: [
-    'plugin:vue/vue3-essential',
-    'eslint:recommended',
-    '@vue/eslint-config-typescript',
-    '@vue/eslint-config-prettier',
-    './.eslintrc-auto-import.json',
-  ],
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:vue/vue3-essential', './.eslintrc-auto-import.json'],
   overrides: [
     {
       env: {
@@ -36,11 +27,10 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     sourceType: 'module',
   },
+  plugins: ['@typescript-eslint', 'vue'],
   rules: {
-    'prettier/prettier': 'error',
-    'no-var': 'error',
-    '@typescript-eslint/no-explicit-any': ['off'],
-    'vue/multi-word-component-names': 0,
-    '@typescript-eslint/ban-types': 'error',
+    'vue/multi-word-component-names': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    'no-mixed-spaces-and-tabs': 'off',
   },
 };

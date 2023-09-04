@@ -17,7 +17,7 @@ import '@kangc/v-md-editor/lib/theme/style/github.css';
 import '@/assets/css/index.scss';
 
 VMdPreview.use(githubTheme, {
-  Hljs: hljs,
+	Hljs: hljs,
 });
 
 const app = createApp(App);

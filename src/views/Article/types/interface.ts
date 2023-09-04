@@ -6,6 +6,6 @@
  * @Description: 请填写简介
  */
 export interface ITag {
-  label: string;
-  key: number;
+	label: string;
+	key: number;
 }
