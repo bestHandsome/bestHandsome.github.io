@@ -6,12 +6,12 @@
  * @Description: 请填写简介
 -->
 <template>
-  <div>
-    <HeaderSection></HeaderSection>
-    <div class="max-w-8xl bg-slate-100">
-      <RouterView />
-    </div>
-  </div>
+	<div>
+		<HeaderSection></HeaderSection>
+		<div class="max-w-8xl bg-slate-100">
+			<RouterView />
+		</div>
+	</div>
 </template>
 <script setup lang="ts">
 import HeaderSection from './Header.vue';

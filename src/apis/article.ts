@@ -9,22 +9,22 @@ import service from '@/utils/request';
 
 // 获取所有文章列表
 export function getArticles(params: Record<string, any>) {
-  return service({
-    url: '/articles?populate=*',
-    params,
-  });
+	return service({
+		url: '/articles?populate=*',
+		params,
+	});
 }
 
 // 获取单个文章内容
 export function getArticleById(id: string) {
-  return service({
-    url: `/articles/${id}?populate=*`,
-  });
+	return service({
+		url: `/articles/${id}?populate=*`,
+	});
 }
 
 // 获取所有标签分类
 export function getTags() {
-  return service({
-    url: '/tags?populate=*',
-  });
+	return service({
+		url: '/tags?populate=*',
+	});
 }

@@ -7,12 +7,12 @@
  */
 import { LogoHtml5, LogoJavascript, LogoVue, LogoReact, List, LogoCss3, LogoApple, LogoAndroid } from '@vicons/ionicons5';
 export const iconMap = {
-  h5: LogoHtml5,
-  js: LogoJavascript,
-  vue: LogoVue,
-  react: LogoReact,
-  css: LogoCss3,
-  list: List,
-  ios: LogoApple,
-  android: LogoAndroid,
+	h5: LogoHtml5,
+	js: LogoJavascript,
+	vue: LogoVue,
+	react: LogoReact,
+	css: LogoCss3,
+	list: List,
+	ios: LogoApple,
+	android: LogoAndroid,
 } as any;

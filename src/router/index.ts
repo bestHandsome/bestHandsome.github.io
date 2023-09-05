@@ -13,23 +13,23 @@ const Layout = () => import('@/Layout/Layout.vue');
 const Home = () => import('@/views/Home.vue');
 
 const routes: RouteRecordRaw[] = [
-  {
-    path: '/',
-    redirect: 'home',
-    component: Layout,
-    children: childrenRoutes,
-  },
-  {
-    path: '/home',
-    component: Home,
-  },
+	{
+		path: '/',
+		redirect: 'home',
+		component: Layout,
+		children: childrenRoutes,
+	},
+	{
+		path: '/home',
+		component: Home,
+	},
 ];
 
 console.log('----', childrenRoutes);
 
 const router = createRouter({
-  history: createWebHashHistory(),
-  routes,
+	history: createWebHashHistory(),
+	routes,
 });
 
 export default router;
