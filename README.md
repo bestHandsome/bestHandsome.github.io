@@ -2,7 +2,7 @@
  * @Author: xingjin
  * @Date: 2023-07-21 15:39:26
  * @LastEditors: xingjinjin
- * @LastEditTime: 2023-07-21 15:39:49
+ * @LastEditTime: 2023-09-05 09:32:48
  * @Description: 请填写简介
 -->
 # my-blog
@@ -16,15 +16,16 @@
 
 #### 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1.  pnpm i
+2.  pnpm dev
+3.  
 
 #### 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1.  提交时有提交校验
+2.  代码经格式化后再进行提交（自动格式化以及eslint错误提示，禁止直接使用--fore强推）
+3.  代码直接部署到github pages 链接是 [我的个人博客](https://besthandsome.github.io/vue3-blog/#/home)
+4.  组件库使用naive ui 还有vue vue-router pinia 均已添加自动导入页面无需二次引入
 
 #### 参与贡献
 

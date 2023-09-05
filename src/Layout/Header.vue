@@ -2,7 +2,7 @@
  * @Author: xingjin
  * @Date: 2023-07-25 09:28:59
  * @LastEditors: xingjinjin
- * @LastEditTime: 2023-09-04 17:52:47
+ * @LastEditTime: 2023-09-05 15:54:54
  * @Description: 顶部导航
 -->
 <template>
@@ -13,10 +13,15 @@
     </div>
     <n-menu v-model:value="activeKey" mode="horizontal" class="flex-1 pl-40 text-base" :options="HeadMenuOptions" :on-update:value="menuSelect" />
     <div class="mr-10 flex">
-      <div @click="changeTheme" class="cursor-pointer mr-3">
-        <n-icon color="#646cff" size="20" v-if="theme === null"><SunnySharp /></n-icon>
-        <n-icon color="#646cff" size="20" v-else><MoonSharp /></n-icon>
-      </div>
+      <n-tooltip placement="bottom" trigger="hover">
+        <template #trigger>
+          <div @click="changeTheme" class="cursor-pointer mr-3">
+            <n-icon color="#646cff" size="20" v-if="theme === null"><SunnySharp /></n-icon>
+            <n-icon color="#646cff" size="20" v-else><MoonSharp /></n-icon>
+          </div>
+        </template>
+        <span> 切换主题 </span>
+      </n-tooltip>
       <n-switch @update:value="changeLocale">
         <template #checked> 中 </template>
         <template #unchecked> 英 </template>
@@ -33,12 +38,20 @@
         </div>
       </n-dropdown>
     </div>
+    <n-tooltip placement="bottom" trigger="hover">
+      <template #trigger>
+        <a href="https://github.com/bestHandsome/vue3-blog"
+          ><n-icon :size="20" class="ml-[5px]"><LogoGithub /></n-icon
+        ></a>
+      </template>
+      <span> I wish all my work is benefit you </span>
+    </n-tooltip>
   </div>
 </template>
 <script lang="ts" setup>
 import { HeadMenuOptions, UserDropDownOptions } from '@/constants/app';
 import { useGlobalStore } from '@/stores/global';
-import { SunnySharp, MoonSharp } from '@vicons/ionicons5';
+import { SunnySharp, MoonSharp, LogoGithub } from '@vicons/ionicons5';
 const globalStore = useGlobalStore();
 const { changeTheme, changeLocale } = globalStore;
 const { theme } = storeToRefs(globalStore);
