@@ -6,7 +6,8 @@
   "scripts": {
     "prepare": "husky install",
     "dev": "vite",
-    "build": "vue-tsc && vite build",
+    "build": "vue-tsc && vite build ",
+    "build-docker": "pnpm build && sh ./configs/bash.sh ",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
     "prettier": "prettier --write .",
